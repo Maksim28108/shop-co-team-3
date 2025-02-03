@@ -4,12 +4,28 @@ export function createHeader() {
   const header = document.createElement('header');
   const logo = document.createElement('div');
   const icons = document.createElement('div');
-
+  // const separator = document.createElement('div');
+  const burgerMenu = document.createElement('div');
+ 
   header.className = 'header';
   logo.className = 'logo';
   icons.className = 'icons';
+  // separator.className = 'headerseparator';
+  burgerMenu.className = 'headerburgermenu';
 
-  logo.innerHTML = `<span>SHOP.CO<span>`;
+  burgerMenu.innerHTML = `
+  <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+  </svg>
+  `;
+
+  console.log(burgerMenu)
+
+  logo.append(burgerMenu);
+
+  
+
+  logo.innerHTML += `<span>SHOP.CO<span>`;
 
   icons.innerHTML = `
     <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -21,13 +37,13 @@ export function createHeader() {
     </svg>
 `;
 
-// const hr = document.createElement('hr');
-// hr.className = 'hr__under-head';
+  
 
-  header.append(logo);
-  header.append(icons);
-
-  // header.append(hr);  
+  header.appendChild(logo);
+  header.appendChild(icons);
+  // header.appendChild(separator);
 
   document.body.prepend(header);
+
+
 }
